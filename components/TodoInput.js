@@ -6,13 +6,11 @@ import {changeTodoInput, addTodo} from '../state/actions';
 function TodoInput() {
   const todoText = useSelector(state => state.todoText);
   const dispatch = useDispatch();
-
   const onChangeTextHandler = (text) => {
     dispatch(changeTodoInput(text));
-  }  
+  }
   const onAddTodoHandler = () => {
     if (todoText.trim() === "") {
-      Alert.alert("scrivi qualcosa!");
       return;
     }
     dispatch(addTodo(todoText));
@@ -20,14 +18,16 @@ function TodoInput() {
     Keyboard.dismiss();
     dispatch(changeTodoInput(""));
   }
-
   return (
     <View style={styles.inputContainer}>
       {/*Input */ }
-      <TextInput 
+      <TextInput   
+        returnKeyType='done'
+        autoFocus={true}
         value={todoText}
         onChangeText={onChangeTextHandler} 
-        placeholder="Scrivi todo" 
+        placeholder="Es. Pane, Latte, etc." 
+        onSubmitEditing={onAddTodoHandler}
         style={styles.input}/>
       <Button title="Aggiungi" onPress={onAddTodoHandler}/>
     </View>
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
       borderColor: "lightblue"
   },
   inputContainer: {
+    flex: 1,
     flexDirection: 'row', 
     alignItems: 'center'
   },

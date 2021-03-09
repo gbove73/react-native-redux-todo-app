@@ -5,8 +5,11 @@ import { Icon } from 'react-native-elements'
 function Todo(props) {
     return (
       <TouchableOpacity onLongPress={props.drag}>
-        <View style={props.isActive ? styles.selected : styles.output}>
-          <View style={{flex: 5}}>    
+        <View style={props.isActive ? styles.selected : (props.item.disabled ? styles.disabled : styles.output)}>
+          <View style={{flex: 1 }}>
+              <Icon name='check-circle' type='font-awesome' color="white" onPress={props.toggleHandler.bind(this)}/>
+          </View>
+          <View style={{flex: 4}}>    
             <Text style={styles.todo}>{props.item.text}</Text>
           </View>  
           <View style={{flex: 1}}>
@@ -25,6 +28,7 @@ const styles = StyleSheet.create({
         backgroundColor: "darkblue",
         flexDirection: 'row',
         alignContent: 'stretch',
+        color: "white",
       },
     selected: {
       backgroundColor: "lightblue",
@@ -33,10 +37,17 @@ const styles = StyleSheet.create({
       padding: 10,
       marginVertical: 5,
     },
+    disabled: {
+      backgroundColor: "lightgray",
+      color: "blue",
+      flexDirection: 'row',
+      padding: 10,
+      marginVertical: 5,
+    },
     todo: {
-      color: "white",
       marginLeft: 20,
       fontSize: 18,
+      color: "white",
     },
     deleteButton: {
       color: 'red',

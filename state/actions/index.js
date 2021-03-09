@@ -25,6 +25,20 @@ export const sortTodo = (data) => {
     }
 }
 
+export const toggleTodo = (id) => {
+    return {
+        type: "toggleTodo",
+        id: id,
+    }
+}
+
+export const delDisabledTodo = (id) => {
+    return {
+        type: "delDisabledTodo",
+        id: id,
+    }
+}
+
 export const changeTodoInput = (text) => {
     return {
         type: "changeTodo",

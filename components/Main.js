@@ -2,12 +2,14 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
+import Toolbar from './Toolbar';
 
 function Main() {
   return (
     <View style={styles.container}>
-        <TodoInput />        
-        <TodoList />
+        <Toolbar/>
+        <TodoInput/>        
+        <TodoList/>
     </View>    
   );
 }
@@ -18,6 +20,7 @@ const styles = StyleSheet.create({
       padding: 50,
       backgroundColor: 'white',
       marginTop: 50,
+      flexDirection: 'column',
     },
   });
 

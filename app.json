@@ -3,6 +3,7 @@
     "name": "FirstApp",
     "slug": "FirstApp",
     "version": "1.0.0",
+    "owner": "gianlucab",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
