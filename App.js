@@ -3,14 +3,13 @@ import {createStore} from 'redux';
 import rootReducer from './state/reducers';
 import {Provider} from 'react-redux';
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import Main from './components/Main';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: AsyncStorage,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
