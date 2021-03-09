@@ -12,7 +12,6 @@ function Toolbar() {
         <View style={styles.container}>
               <Icon style={{paddingRight: 50}} name={global.locked ? 'toggle-on' : 'toggle-off'} type='font-awesome' color={global.locked ? "red" : "gray"} 
               onPress={() => dispatch(toggleLock())}/>
-          
               <Icon style={{display: global.locked ? 'none' : ''}} name='check' type='font-awesome' color="green" onPress={() => dispatch(delDisabledTodo())}/>
         </View>
     );
