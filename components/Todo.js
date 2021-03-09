@@ -1,14 +1,17 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import { Icon } from 'react-native-elements'
 
 function Todo(props) {
     return (
       <TouchableOpacity onLongPress={props.drag}>
         <View style={props.isActive ? styles.selected : styles.output}>
-          <TouchableOpacity onPress={props.deleteHandler.bind(this)}>
-            <Text style={styles.deleteButton}>X</Text>
-          </TouchableOpacity>
-          <Text style={styles.todo}>{props.item.text}</Text>
+          <View style={{flex: 5}}>    
+            <Text style={styles.todo}>{props.item.text}</Text>
+          </View>  
+          <View style={{flex: 1}}>
+              <Icon name='trash' type='font-awesome' color="red" onPress={props.deleteHandler.bind(this)}/>
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -16,10 +19,12 @@ function Todo(props) {
 
 const styles = StyleSheet.create({
     output: {
+        flex: 1,
         padding: 10,
         marginVertical: 5,
         backgroundColor: "darkblue",
         flexDirection: 'row',
+        alignContent: 'stretch',
       },
     selected: {
       backgroundColor: "lightblue",
