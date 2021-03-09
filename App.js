@@ -17,6 +17,7 @@ const store = createStore(persistedReducer)
 const persistor = persistStore(store)
 
 export default class App extends React.Component {
+
   render() {
       return (
         <Provider store={store}>

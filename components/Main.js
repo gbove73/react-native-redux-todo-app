@@ -3,8 +3,10 @@ import {StyleSheet, View} from 'react-native';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 import Toolbar from './Toolbar';
+import { useKeepAwake } from 'expo-keep-awake';
 
 function Main() {
+  useKeepAwake();
   return (
     <View style={styles.container}>
         <Toolbar/>

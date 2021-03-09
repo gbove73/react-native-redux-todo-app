@@ -1,16 +1,19 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {delDisabledTodo} from '../state/actions';
+import {delDisabledTodo, toggleLock} from '../state/actions';
 import { Icon } from 'react-native-elements';
 
 function Toolbar() {
-    const todoList = useSelector(state => state.todoList);
+    const global = useSelector(state => state.global);
     const dispatch = useDispatch();
 
     return (
         <View style={styles.container}>
-              <Icon name='check' type='font-awesome' color="green" onPress={() => dispatch(delDisabledTodo())}/>
+              <Icon style={{paddingRight: 50}} name={global.locked ? 'toggle-on' : 'toggle-off'} type='font-awesome' color={global.locked ? "red" : "gray"} 
+              onPress={() => dispatch(toggleLock())}/>
+          
+              <Icon style={{display: global.locked ? 'none' : ''}} name='check' type='font-awesome' color="green" onPress={() => dispatch(delDisabledTodo())}/>
         </View>
     );
 }

@@ -39,6 +39,11 @@ export const delDisabledTodo = (id) => {
     }
 }
 
+export const toggleLock = () => {
+    return {
+        type: "toggleLock",
+    }
+}
 export const changeTodoInput = (text) => {
     return {
         type: "changeTodo",

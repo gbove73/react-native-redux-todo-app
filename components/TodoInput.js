@@ -30,7 +30,7 @@ function TodoInput() {
         placeholder="Es. Pane, Latte, etc." 
         onSubmitEditing={onAddTodoHandler}
         style={styles.input}/>
-      <Icon style={{paddingLeft: 15}} name='cart-plus' type='font-awesome' color="darkblue" onPress={onAddTodoHandler}/>
+      <Icon reverse size={18} name='cart-plus' type='font-awesome' color="darkblue" onPress={onAddTodoHandler}/>
       
     </View>
   );
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       paddingVertical: 5,
       paddingLeft: 5,
-      borderColor: "lightblue"
+      borderColor: "lightblue",
+      flex: 5,
   },
   inputContainer: {
     flex: 1,

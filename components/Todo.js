@@ -1,8 +1,10 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import { Icon } from 'react-native-elements'
+import {useDispatch, useSelector} from 'react-redux';
 
 function Todo(props) {
+  const global = useSelector(state => state.global);
     return (
       <TouchableOpacity onLongPress={props.drag}>
         <View style={props.isActive ? styles.selected : (props.item.disabled ? styles.disabled : styles.output)}>
@@ -12,8 +14,8 @@ function Todo(props) {
           <View style={{flex: 4}}>    
             <Text style={styles.todo}>{props.item.text}</Text>
           </View>  
-          <View style={{flex: 1}}>
-              <Icon name='trash' type='font-awesome' color="red" onPress={props.deleteHandler.bind(this)}/>
+          <View style={{flex: 1}} >
+              <Icon style={{display: global.locked ? 'none' : ''}} name='trash' type='font-awesome' color="red" onPress={props.deleteHandler.bind(this)}/>
           </View>
         </View>
       </TouchableOpacity>
