@@ -2,3 +2,12 @@
 React Native Todo list example with redux
 
 It uses: redux / persist. Made with expo.
+
+
+
+
+# Usage
+
+- npm install -g expo-cli
+- expo login
+- npm start
