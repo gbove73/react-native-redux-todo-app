@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {delDisabledTodo, toggleLock} from '../state/actions';
+import {delDisabledTodo, toggleLock, sortActiveFirst} from '../state/actions';
 import { Icon } from 'react-native-elements';
 
 function Toolbar() {
@@ -10,7 +10,9 @@ function Toolbar() {
 
     return (
         <View style={styles.container}>
-              <Icon style={{paddingRight: 50}} name={global.locked ? 'toggle-on' : 'toggle-off'} type='font-awesome' color={global.locked ? "red" : "gray"} 
+            <Icon style={{paddingRight: 50}} name={'sort'} type='font-awesome' color={"green"}
+                  onPress={() => dispatch(sortActiveFirst())}/>
+            <Icon style={{paddingRight: 50}} name={global.locked ? 'toggle-on' : 'toggle-off'} type='font-awesome' color={global.locked ? "red" : "gray"}
               onPress={() => dispatch(toggleLock())}/>
               <Icon style={{display: global.locked ? 'none' : ''}} name='check' type='font-awesome' color="green" onPress={() => dispatch(delDisabledTodo())}/>
         </View>

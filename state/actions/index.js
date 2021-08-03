@@ -26,10 +26,9 @@ export const toggleTodo = (id) => {
     }
 }
 
-export const delDisabledTodo = (id) => {
+export const delDisabledTodo = () => {
     return {
         type: "delDisabledTodo",
-        id: id,
     }
 }
 
@@ -38,9 +37,17 @@ export const toggleLock = () => {
         type: "toggleLock",
     }
 }
+
+
 export const changeTodoInput = (text) => {
     return {
         type: "changeTodo",
         text: text,
+    }
+}
+
+export const sortActiveFirst = () => {
+    return {
+        type: "sortActiveFirst",
     }
 }
