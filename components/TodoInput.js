@@ -14,7 +14,7 @@ function TodoInput() {
     if (todoText.trim() === "") {
       return;
     }
-    dispatch(addTodo(todoText));
+    dispatch(addTodo(todoText.trim()));
     // scompare la tastiera e svuota il campo
     Keyboard.dismiss();
     dispatch(changeTodoInput(""));
