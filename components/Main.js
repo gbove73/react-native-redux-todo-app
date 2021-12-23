@@ -6,9 +6,11 @@ import Toolbar from './Toolbar';
 import { useKeepAwake } from 'expo-keep-awake';
 
 function Main() {
+    const containerRef = React.useRef();
   useKeepAwake();
   return (
-    <View style={styles.container}>
+    <View
+        style={styles.container}>
         <Toolbar/>
         <TodoInput/>        
         <TodoList/>
