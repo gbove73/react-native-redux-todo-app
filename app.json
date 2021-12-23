@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FirstApp",
-    "slug": "FirstApp",
+    "name": "ListaSpesa",
+    "slug": "listaspesa",
     "version": "1.0.0",
     "owner": "gianlucab",
     "orientation": "portrait",
