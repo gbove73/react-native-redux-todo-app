@@ -10,4 +10,5 @@ It uses: redux / persist. Made with expo.
 
 - npm install -g expo-cli
 - expo login
+- npm install
 - npm start
